@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A modern, responsive single-page business website template.">
+<title>NovaWorks — Build Better. Move Faster.</title>
+<style>
+:root{
+  --bg:#08111f; --bg2:#0d1a2d; --card:rgba(255,255,255,.065);
+  --text:#f5f8ff; --muted:#a9b6ca; --line:rgba(255,255,255,.11);
+  --accent:#62e6c7; --accent2:#6ea8ff; --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+.container{width:min(calc(100% - 40px),var(--max));margin:auto}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:.3s}
+nav.scrolled{background:rgba(8,17,31,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.navbar{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.25rem;font-weight:850;letter-spacing:-.04em}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:30px;align-items:center}
+.links a{font-size:.92rem;color:#c9d3e3;transition:.2s}
+.links a:hover{color:var(--accent)}
+.nav-cta,.btn.primary{background:var(--accent);color:#06141b;font-weight:800}
+.nav-cta{padding:10px 17px;border-radius:999px}
+.menu{display:none;background:none;border:0;color:white;font-size:1.6rem}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:130px 0 80px;isolation:isolate}
+.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(8,17,31,.96) 0%,rgba(8,17,31,.82) 45%,rgba(8,17,31,.35) 100%),url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=85") center/cover}
+.hero:after{content:"";position:absolute;z-index:-1;width:520px;height:520px;right:-160px;top:10%;background:#4b7dff33;filter:blur(80px);border-radius:50%}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:#ffffff0b;padding:7px 12px;border-radius:999px;color:#cdd8e8;font-size:.82rem;margin-bottom:22px}
+.dot{width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 15px var(--accent)}
+h1{font-size:clamp(3.1rem,7vw,6.4rem);line-height:.96;letter-spacing:-.065em;max-width:850px}
+.gradient{background:linear-gradient(100deg,#fff 25%,var(--accent) 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:1.12rem;color:#bdc9db;max-width:650px;margin:27px 0 32px}
+.actions{display:flex;gap:13px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);padding:13px 20px;border-radius:10px;transition:.25s;cursor:pointer}
+.btn:hover{transform:translateY(-2px);border-color:#ffffff30}
+.btn.secondary{background:#ffffff08;color:white}
+.stats{display:flex;gap:45px;margin-top:55px;flex-wrap:wrap}
+.stat strong{display:block;font-size:1.8rem}.stat span{font-size:.8rem;color:var(--muted)}
+section{padding:105px 0}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+.kicker{color:var(--accent);font-weight:800;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;letter-spacing:-.045em;margin-top:9px}
+.section-head p{max-width:480px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:29px;transition:.3s}
+.card:hover{transform:translateY(-5px);background:#ffffff0b;border-color:#ffffff25}
+.icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:#62e6c71a;color:var(--accent);font-size:1.35rem;margin-bottom:23px}
+.card h3{font-size:1.15rem;margin-bottom:9px}.card p{color:var(--muted);font-size:.92rem}
+.work{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+.project{position:relative;overflow:hidden;min-height:390px;border-radius:20px;border:1px solid var(--line);background:#111}
+.project img{width:100%;height:100%;object-fit:cover;display:block;transition:.6s}
+.project:hover img{transform:scale(1.05)}
+.project:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,#050a13e8)}
+.project-content{position:absolute;z-index:2;bottom:25px;left:25px;right:25px}
+.project-content small{color:var(--accent);font-weight:800}.project-content h3{font-size:1.55rem;margin:5px 0}
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
+.about-img{height:520px;border-radius:25px;overflow:hidden;border:1px solid var(--line)}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-copy p{color:var(--muted);margin:20px 0}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+.check{padding:12px 14px;background:#ffffff06;border:1px solid var(--line);border-radius:10px;font-size:.9rem}.check b{color:var(--accent);margin-right:7px}
+.quote{max-width:850px;margin:auto;text-align:center}.quote blockquote{font-size:clamp(1.5rem,3vw,2.4rem);line-height:1.25;letter-spacing:-.025em}.quote cite{display:block;color:var(--muted);font-style:normal;margin-top:20px}
+.contact{background:linear-gradient(135deg,#10263a,#0b1727);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.contact-box{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.contact-copy p{color:var(--muted);margin:18px 0 28px;max-width:480px}
+.contact-info{display:grid;gap:13px}.contact-info div{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#ffffff05}
+form{display:grid;gap:13px}
+input,textarea{width:100%;background:#07111f;border:1px solid var(--line);color:white;border-radius:10px;padding:13px 14px;outline:none}
+input:focus,textarea:focus{border-color:var(--accent)}textarea{min-height:125px;resize:vertical}
+footer{padding:28px 0;color:#7f8da2;font-size:.84rem}.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+.toast{position:fixed;right:20px;bottom:20px;background:#102235;border:1px solid var(--line);padding:13px 17px;border-radius:12px;display:none;z-index:200}.toast.show{display:block}
+@media(max-width:850px){
+  .links{display:none;position:absolute;top:70px;left:20px;right:20px;background:#0b1728f5;backdrop-filter:blur(20px);padding:18px;border:1px solid var(--line);border-radius:16px;flex-direction:column;align-items:flex-start}
+  .links.open{display:flex}.menu{display:block}.nav-cta{display:none}
+  .grid,.work,.about,.contact-box{grid-template-columns:1fr}.work .project{min-height:330px}.about-img{height:380px}
+  .section-head{display:block}.section-head p{margin-top:15px}.stats{gap:25px}
+}
+@media(max-width:520px){
+  .container{width:min(calc(100% - 28px),var(--max))}section{padding:75px 0}
+  h1{font-size:3.25rem}.checks{grid-template-columns:1fr}.footer-inner{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container navbar">
+    <a class="logo" href="#home">NOVA<span>WORKS</span></a>
+    <div class="links" id="links">
+      <a href="#home">Home</a><a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">Let's Talk</a>
+    <button class="menu" id="menu" aria-label="Open menu">☰</button>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span> Digital solutions for ambitious teams</div>
+    <h1>Build better.<br><span class="gradient">Move faster.</span></h1>
+    <p>We design modern digital experiences that turn ideas into memorable brands, efficient products, and measurable business results.</p>
+    <div class="actions"><a class="btn primary" href="#contact">Start a project →</a><a class="btn secondary" href="#work">Explore our work</a></div>
+    <div class="stats">
+      <div class="stat"><strong>120+</strong><span>Projects delivered</span></div>
+      <div class="stat"><strong>38</strong><span>Brands launched</span></div>
+      <div class="stat"><strong>9.8/10</strong><span>Client satisfaction</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+<div class="container">
+  <div class="section-head reveal"><div><div class="kicker">What we do</div><h2>From first idea<br>to final launch.</h2></div><p>One focused team for strategy, design, development, and digital growth — without unnecessary complexity.</p></div>
+  <div class="grid">
+    <article class="card reveal"><div class="icon">✦</div><h3>Brand & Strategy</h3><p>Positioning, visual identity, messaging, and digital strategy that make your business easy to understand and remember.</p></article>
+    <article class="card reveal"><div class="icon">◈</div><h3>Web Experiences</h3><p>Fast, responsive websites and landing pages designed around your customers and built for conversion.</p></article>
+    <article class="card reveal"><div class="icon">↗</div><h3>Growth & Optimization</h3><p>Continuous improvements, analytics, SEO, and conversion-focused experiments that turn traffic into opportunity.</p></article>
+  </div>
+</div>
+</section>
+
+<section id="work">
+<div class="container">
+  <div class="section-head reveal"><div><div class="kicker">Selected work</div><h2>A few things<br>we've built.</h2></div><p>Every project starts with a business problem and ends with something useful, beautiful, and measurable.</p></div>
+  <div class="work">
+    <article class="project reveal"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85" alt="Team collaborating"><div class="project-content"><small>BRAND + WEB</small><h3>Northstar Consulting</h3><p>Repositioning a B2B consultancy for its next stage of growth.</p></div></article>
+    <article class="project reveal"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85" alt="Digital product"><div class="project-content"><small>DIGITAL PRODUCT</small><h3>Finova</h3><p>A cleaner experience for everyday financial decisions.</p></div></article>
+  </div>
+</div>
+</section>
+
+<section id="about">
+<div class="container about">
+  <div class="about-img reveal"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85" alt="Creative team meeting"></div>
+  <div class="about-copy reveal"><div class="kicker">Why NovaWorks</div><h2>Small team.<br>Big thinking.</h2><p>We believe great digital work happens when strategy, creativity, and technology sit at the same table. Our process stays lean so decisions stay fast.</p><p>No layers of account management. No unnecessary jargon. Just experienced people solving the right problem with you.</p>
+    <div class="checks"><div class="check"><b>✓</b>Senior-led projects</div><div class="check"><b>✓</b>Transparent process</div><div class="check"><b>✓</b>Mobile-first design</div><div class="check"><b>✓</b>Performance focused</div></div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="quote reveal"><div class="kicker">Client perspective</div><blockquote>“NovaWorks didn't just redesign our website. They helped us clarify what we stand for — and the results followed.”</blockquote><cite>— Priya Sharma, Founder, Northstar</cite></div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="container contact-box">
+  <div class="contact-copy reveal"><div class="kicker">Start a conversation</div><h2>Have a good idea?<br>Let's make it real.</h2><p>Tell us a little about what you're building. This demo form is front-end only and does not require a database.</p>
+    <div class="contact-info"><div>✉️ hello@novaworks.example</div><div>📞 +91 98765 43210</div><div>📍 Bengaluru · India</div></div>
+  </div>
+  <form id="contactForm" class="reveal">
+    <input required name="name" placeholder="Your name">
+    <input required type="email" name="email" placeholder="Email address">
+    <input name="company" placeholder="Company / Organization">
+    <textarea required name="message" placeholder="Tell us about your project..."></textarea>
+    <button class="btn primary" type="submit">Send enquiry →</button>
+  </form>
+</div>
+</section>
+</main>
+
+<footer><div class="container footer-inner"><div>© <span id="year"></span> NovaWorks. All rights reserved.</div><div>Built as a single HTML file · No database required</div></div></footer>
+<div class="toast" id="toast">Thanks! This demo form is ready to connect to your email service.</div>
+
+<script>
+const nav=document.getElementById('nav'), links=document.getElementById('links'), menu=document.getElementById('menu');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
+menu.addEventListener('click',()=>links.classList.toggle('open'));
+document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('toast').classList.add('show');
+  e.target.reset();
+  setTimeout(()=>document.getElementById('toast').classList.remove('show'),4500);
+});
+</script>
+</body>
+</html>

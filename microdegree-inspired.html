@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MicroDegree — Learn Tech 10X Faster in Kannada</title>
+<meta name="description" content="A single-file static recreation inspired by the current MicroDegree learning page.">
+<style>
+:root{--ink:#101010;--muted:#686868;--paper:#f8f8f5;--lime:#d7ff43;--orange:#ff6b35;--line:#deded8;--white:#fff;--max:1220px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--ink);background:var(--paper);line-height:1.45}
+a{text-decoration:none;color:inherit}.wrap{width:min(calc(100% - 36px),var(--max));margin:auto}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(248,248,245,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:1.35rem;font-weight:950;letter-spacing:-.06em}.logo sup{font-size:.45em}.logo em{font-style:normal;color:#888}
+.navlinks{display:flex;gap:28px;align-items:center;font-size:.9rem;font-weight:650}.navlinks a:hover{color:var(--orange)}
+.navbtn,.btn{border:1px solid var(--ink);background:var(--ink);color:white;border-radius:7px;padding:12px 17px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.navbtn:hover,.btn:hover{transform:translateY(-2px)}.ghost{background:transparent;color:var(--ink)}
+.menu{display:none;border:0;background:none;font-size:25px}
+.hero{padding:80px 0 65px;overflow:hidden;background:var(--paper)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:50px}
+.eyebrow{font-size:.77rem;text-transform:uppercase;letter-spacing:.16em;font-weight:900;color:var(--orange);margin-bottom:18px}
+h1{font-size:clamp(3.4rem,7.5vw,7.4rem);line-height:.86;letter-spacing:-.075em;margin:0;max-width:800px}
+h1 span{display:block}.green{color:#95bd00}.hero-copy{font-size:1.12rem;color:#555;max-width:630px;margin:27px 0}.actions{display:flex;gap:10px;flex-wrap:wrap}
+.hero-art{min-height:470px;border-radius:24px;background:#deded8;position:relative;overflow:hidden}
+.hero-art img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85)}
+.hero-badge{position:absolute;left:22px;bottom:22px;background:var(--lime);padding:16px 19px;border-radius:12px;font-weight:900;max-width:210px}
+.tools{padding:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.toolrow{display:flex;gap:15px;flex-wrap:wrap;justify-content:center}.tool{padding:11px 17px;border:1px solid #d3d3cd;border-radius:999px;background:#fff;font-weight:800;font-size:.86rem}
+.section{padding:100px 0}.dark{background:#111;color:#fff}.lime{background:var(--lime)}
+.kicker{font-size:.73rem;text-transform:uppercase;letter-spacing:.16em;font-weight:900;color:var(--orange)}
+.dark .kicker{color:var(--lime)}h2{font-size:clamp(2.5rem,5vw,5rem);line-height:.92;letter-spacing:-.065em;margin:10px 0 18px}
+.intro{max-width:650px;color:#666}.dark .intro{color:#bcbcbc}
+.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ccc;margin-top:48px;border:1px solid #ccc}.proof>div{background:var(--paper);padding:28px}.proof strong{font-size:2.5rem;display:block;letter-spacing:-.06em}.proof span{color:#666;font-size:.88rem}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:45px}.plan{background:#fff;border:1px solid var(--line);padding:32px;border-radius:18px;position:relative}.plan.premium{background:#171717;color:#fff;border-color:#171717}.tag{position:absolute;right:18px;top:18px;background:var(--lime);color:#111;border-radius:99px;padding:5px 9px;font-size:.68rem;font-weight:900}.price{font-size:3.3rem;font-weight:950;letter-spacing:-.06em;margin:12px 0}.price small{font-size:.9rem;font-weight:700;letter-spacing:0;color:#888}.plan ul{list-style:none;padding:0;margin:24px 0}.plan li{padding:8px 0;border-bottom:1px solid #e5e5e0;color:#666}.premium li{border-color:#333;color:#ccc}.plan li:before{content:"✓";font-weight:900;margin-right:9px;color:#8aa900}
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:45px}.feature{border-top:2px solid #222;padding-top:18px}.feature b{font-size:1.1rem}.feature p{color:#666;font-size:.9rem}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:45px}.rolebox{border:1px solid #333;border-radius:16px;padding:28px}.rolebox h3{font-size:1.3rem}.rolebox p{color:#aaa}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid #444;padding:8px 11px;border-radius:999px;font-size:.78rem;color:#ddd}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}.review{background:#fff;border:1px solid var(--line);padding:25px;border-radius:15px}.stars{letter-spacing:2px}.review p{color:#555}.review b{font-size:.9rem}
+.faq{max-width:850px;margin:45px auto 0}.faq details{border-top:1px solid var(--line);padding:20px 0}.faq summary{cursor:pointer;font-weight:850;list-style:none}.faq summary:after{content:"+";float:right;font-size:1.3rem}.faq details[open] summary:after{content:"−"}.faq p{color:#666;margin:13px 0 0}
+.cta{padding:95px 0;background:var(--lime)}.cta-inner{display:flex;align-items:end;justify-content:space-between;gap:30px}.cta h2{max-width:700px}.cta p{max-width:520px;color:#3d4710}
+footer{background:#111;color:#fff;padding:55px 0 25px}.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:45px}.foot h4{margin:0 0 13px}.foot p,.foot a{color:#aaa;font-size:.87rem;display:block;margin:7px 0}.copyright{border-top:1px solid #333;margin-top:40px;padding-top:20px;color:#777;font-size:.8rem}
+.reveal{opacity:0;transform:translateY(22px);transition:.65s ease}.reveal.show{opacity:1;transform:none}
+@media(max-width:900px){.navlinks{display:none}.menu{display:block}.navlinks.open{display:flex;position:absolute;left:18px;right:18px;top:70px;background:#fff;padding:18px;border:1px solid var(--line);border-radius:12px;flex-direction:column;align-items:flex-start}.hero-grid,.roles{grid-template-columns:1fr}.hero-art{min-height:360px}.proof{grid-template-columns:repeat(2,1fr)}.feature-grid{grid-template-columns:repeat(2,1fr)}.reviews{grid-template-columns:1fr}.cta-inner{display:block}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.wrap{width:min(calc(100% - 26px),var(--max))}.navbtn{display:none}.hero{padding-top:55px}h1{font-size:3.65rem}.cards{grid-template-columns:1fr}.proof{grid-template-columns:1fr 1fr}.feature-grid{grid-template-columns:1fr}.foot{grid-template-columns:1fr}.section{padding:70px 0}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="wrap nav">
+<a class="logo" href="#">MicroDegree<sup>®</sup></a>
+<nav class="navlinks" id="navlinks">
+<a href="#courses">Courses</a><a href="#why">Why Us</a><a href="#careers">Career Paths</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
+</nav>
+<a class="navbtn" href="#plans">Enroll Now @ ₹399</a><button class="menu" id="menu">☰</button>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div class="wrap hero-grid">
+<div class="reveal">
+<div class="eyebrow">#CloudForKannadigas 🚀</div>
+<h1>Learn Tech <span class="green">10X Faster</span><span>in Kannada.</span></h1>
+<p class="hero-copy">Practise Cloud, DevOps, Kubernetes, Agentic AI, GenAI and more through self-paced courses designed for IT professionals.</p>
+<div class="actions"><a class="btn" href="#plans">Enroll Now @ ₹399</a><a class="btn ghost" href="#courses">Explore Skills →</a></div>
+</div>
+<div class="hero-art reveal">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=85" alt="Learning technology">
+<div class="hero-badge">Global tech.<br>Local language.<br>Real skills.</div>
+</div>
+</div>
+</section>
+
+<div class="tools"><div class="wrap toolrow">
+<span class="tool">AWS</span><span class="tool">Azure</span><span class="tool">Google Cloud</span><span class="tool">Kubernetes</span><span class="tool">Docker</span><span class="tool">Terraform</span><span class="tool">GitHub</span><span class="tool">GenAI</span>
+</div></div>
+
+<section class="section">
+<div class="wrap">
+<div class="reveal"><div class="kicker">01 / proof</div><h2>Trusted by Kannadiga<br>IT professionals.</h2><p class="intro">7 years of Kannada-first tech education — built around practical skills, clear concepts and career outcomes.</p></div>
+<div class="proof reveal"><div><strong>1 Lakh+</strong><span>Learners</span></div><div><strong>90K+</strong><span>YouTube subscribers</span></div><div><strong>2020</strong><span>Elevate Startup Winner</span></div><div><strong>7 yrs</strong><span>Kannada-first education</span></div></div>
+</div>
+</section>
+
+<section class="section" id="courses">
+<div class="wrap">
+<div class="reveal"><div class="kicker">02 / programs</div><h2>Learn what matters.</h2><p class="intro">Two tracks, one teaching style — everything explained in Kannada.</p></div>
+<div class="cards" id="plans">
+<article class="plan reveal"><h3>Free Plan</h3><p>Start from zero, free of cost.</p><div class="price">₹0 <small>forever free</small></div><ul><li>50+ courses</li><li>70+ video lessons</li><li>Self-paced recorded sessions</li><li>Learn from industry experts</li><li>AWS · DevOps · Linux · Azure · CKA · GenAI</li></ul><a class="btn ghost" href="#">Start Learning Free</a></article>
+<article class="plan premium reveal"><span class="tag">80% OFF</span><h3>Premium Plan</h3><p>For a Cloud, DevOps or AI role this year.</p><div class="price">₹399 <small>/ 2 months</small></div><ul><li>150+ courses</li><li>250+ video lessons</li><li>Advanced-level learning</li><li>Interview prep & career roadmap</li><li>Shareable completion certificate</li></ul><a class="btn" style="background:var(--lime);color:#111;border-color:var(--lime)" href="#">Enroll Now @ ₹399</a></article>
+</div>
+</div>
+</section>
+
+<section class="section dark" id="why">
+<div class="wrap">
+<div class="reveal"><div class="kicker">03 / why us</div><h2>Why MicroDegree.</h2></div>
+<div class="feature-grid">
+<div class="feature reveal"><b>10x Faster in Kannada</b><p>Complex technology explained in a language and context that feels natural.</p></div>
+<div class="feature reveal"><b>Learn by Doing</b><p>Hands-on learning designed around tools, practical work and real-world scenarios.</p></div>
+<div class="feature reveal"><b>Built for IT Professionals</b><p>Focused tracks for people who want to upskill, switch roles or grow faster.</p></div>
+<div class="feature reveal"><b>Global Tech, Local Learning</b><p>Learn the same modern cloud and AI ecosystem with Kannada-first teaching.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section lime" id="careers">
+<div class="wrap">
+<div class="reveal"><div class="kicker" style="color:#283400">05 / outcomes</div><h2>Your next role<br>starts here.</h2><p class="intro" style="color:#46501d">Your current role doesn't have to dictate your next high-paying one.</p></div>
+<div class="roles">
+<div class="rolebox reveal"><h3>Where you start</h3><div class="chips"><span class="chip" style="color:#111;border-color:#657414">IT Support</span><span class="chip" style="color:#111;border-color:#657414">Developer</span><span class="chip" style="color:#111;border-color:#657414">Manual Tester</span><span class="chip" style="color:#111;border-color:#657414">System Admin</span><span class="chip" style="color:#111;border-color:#657414">Network Engineer</span><span class="chip" style="color:#111;border-color:#657414">Project Manager</span></div></div>
+<div class="rolebox reveal"><h3>Where you can go</h3><div class="chips"><span class="chip" style="color:#111;border-color:#657414">Cloud Engineer</span><span class="chip" style="color:#111;border-color:#657414">SRE</span><span class="chip" style="color:#111;border-color:#657414">Platform Engineer</span><span class="chip" style="color:#111;border-color:#657414">DevOps Engineer</span><span class="chip" style="color:#111;border-color:#657414">CI/CD Engineer</span><span class="chip" style="color:#111;border-color:#657414">AI Engineer</span></div></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="reviews">
+<div class="wrap">
+<div class="reveal"><div class="kicker">05 / reviews</div><h2>Learners, in<br>their words.</h2></div>
+<div class="reviews">
+<div class="review reveal"><div class="stars">★★★★★</div><p>“The content was well structured, practical and easy to understand. The hands-on exercises made the concepts much clearer.”</p><b>Avila BS</b></div>
+<div class="review reveal"><div class="stars">★★★★★</div><p>“A great learning experience with highly practical training. The sessions helped me strengthen my AWS and DevOps skills.”</p><b>Vineeth Shetty</b></div>
+<div class="review reveal"><div class="stars">★★★★★</div><p>“The trainer was knowledgeable and interactive. Practical examples and live scenarios made it easy to understand.”</p><b>Varun BC</b></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="faq">
+<div class="wrap">
+<div class="reveal"><div class="kicker">07 / faq</div><h2>Questions,<br>answered.</h2></div>
+<div class="faq">
+<details class="reveal"><summary>Will I receive a certificate?</summary><p>Yes. The Premium plan includes a shareable, verifiable MicroDegree certificate after completing a track.</p></details>
+<details class="reveal"><summary>How long will I have course access?</summary><p>Courses are designed for flexible self-paced learning so you can learn at your own pace.</p></details>
+<details class="reveal"><summary>Can I access the courses on mobile?</summary><p>Yes, the learning experience is designed to work across modern mobile and desktop browsers.</p></details>
+<details class="reveal"><summary>Are the sessions live or recorded?</summary><p>The core learning tracks are self-paced recorded lessons, with practical learning and community support.</p></details>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="wrap cta-inner"><div><div class="kicker" style="color:#283400">Ready?</div><h2>Build your future in tech — in Kannada.</h2></div><div><p>Start learning today. No complicated setup. Just practical skills, clear explanations and a roadmap forward.</p><a class="btn" href="#plans">Get Started →</a></div></div>
+</section>
+</main>
+
+<footer>
+<div class="wrap foot">
+<div><div class="logo">MicroDegree<sup>®</sup></div><p>Kannada-first tech education for Cloud, DevOps and AI careers.</p></div>
+<div><h4>Contact</h4><p>0804-710-9999</p><p>hello@microdegree.work</p><p>WhatsApp support available</p></div>
+<div><h4>Office</h4><p>K-tech Innovation Hub, 3rd Floor,<br>Plama Building, Bejai,<br>Mangaluru, Karnataka 575004</p><p>Sri Guruprasad Vasavi Classic,<br>Jayanagar, Bengaluru, Karnataka</p></div>
+</div>
+<div class="wrap copyright">© 2026 MicroDegree · ಕರ್ನಾಟಕದಲ್ಲಿ ನಿರ್ಮಿಸಲಾಗಿದೆ · Static demo page</div>
+</footer>
+
+<script>
+const menu=document.getElementById('menu'),nav=document.getElementById('navlinks');
+menu.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+</script>
+</body>
+</html>
