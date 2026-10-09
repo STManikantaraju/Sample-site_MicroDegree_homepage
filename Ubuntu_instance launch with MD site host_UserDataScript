@@ -134,7 +134,7 @@ cat > /var/www/html/index.html <<'EOF'
         <!-- AWS image -->
         <img
             class="aws-image"
-            src="https://d1.awsstatic.com/logos/aws-logo/AWS-Logo-Horizontal-White.5e4c8e6b5e0f3f8f7c0c5f8c5f4e6c8e.svg"
+            src="https://w7.pngwing.com/pngs/610/693/png-transparent-amazon-aws-logo.png"
             alt="Amazon Web Services"
         >
 
