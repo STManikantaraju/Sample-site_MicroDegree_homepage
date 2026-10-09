@@ -134,10 +134,8 @@ cat > /var/www/html/index.html <<'EOF'
         <!-- AWS image -->
         <img
             class="aws-image"
-            src="https://w7.pngwing.com/pngs/610/693/png-transparent-amazon-aws-logo.png"
-            alt="Amazon Web Services"
-        >
-
+            <!-- src="https://img.icons8.com/?size=256&id=33039&format=png"
+            -->
         <h2>Ubuntu + Apache + AWS</h2>
 
         <p>
